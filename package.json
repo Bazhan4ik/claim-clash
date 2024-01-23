@@ -1,0 +1,17 @@
+{
+  "name": "claim-clash",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "server": "cd backend && npm run start",
+    "web": "cd frontend && npm run start"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@angular/cli": "^17.1.0",
+    "@nestjs/cli": "^10.3.0"
+  }
+}
