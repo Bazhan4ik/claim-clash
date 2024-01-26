@@ -3,6 +3,14 @@
     ClaimClash
   </div>
   <div class="topics">
-    Ukraine War
+    @for (topic of topics; track topic._id) {
+      <a class="topic" [routerLink]="['/', 'topic', topic._id]">
+        <div class="title">
+          {{ topic.title }}
+        </div>
+      </a>
+    } @empty {
+      No topics
+    }
   </div>
 </div>
