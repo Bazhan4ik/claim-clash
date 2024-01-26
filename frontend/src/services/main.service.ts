@@ -14,7 +14,7 @@ export class MainService {
 
   get<T>(...path: string[]) {
     return firstValueFrom(
-      this.http.get<T>("http://localhost:3000/topics")
+      this.http.get<T>("/api/topics")
     )
 
   }

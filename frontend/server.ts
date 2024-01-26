@@ -6,6 +6,7 @@ import * as express from 'express';
 import { existsSync } from 'node:fs';
 import { join } from 'node:path';
 import AppServerModule from './src/main.server';
+import axios from 'axios';
 
 // The Express app is exported so that it can be used by serverless Functions.
 export function app(): express.Express {
@@ -26,6 +27,13 @@ export function app(): express.Express {
   server.get('*.*', express.static(distFolder, {
     maxAge: '1y'
   }));
+
+  server.get("/api/topics", async (req, res) => {
+
+    const result = await axios.get("http://localhost:3000/topics");
+
+    res.send(result.data);
+  })
 
   // All regular routes use the Angular engine
   server.get('*', (req, res, next) => {
