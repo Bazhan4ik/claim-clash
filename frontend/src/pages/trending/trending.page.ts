@@ -15,21 +15,18 @@ export class TrendingPage implements OnInit {
   topics!: Topic[];
 
   async ngOnInit() {
+    const result = await this.service.get<Topic[]>("");
 
-    const result = await this.service.get<Topic[]>("")
-
-    console.log(result);
 
     if (result && result.length > 0) {
       this.topics = result;
     }
-
   }
-
 }
 
 
 interface Topic {
   title: string;
+  id: string;
   _id: string;
 }
