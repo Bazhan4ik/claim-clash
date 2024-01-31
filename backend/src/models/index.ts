@@ -11,3 +11,13 @@ export class Topic {
 }
 
 export const TopicSchema = SchemaFactory.createForClass(Topic);
+
+
+@Schema()
+export class Claim {
+  @Prop() title: string;
+  @Prop() explanation: string;
+  // @Prop({ type: mongoose.Schema.Types.ObjectId }) _id: ObjectId;
+}
+
+export const ClaimSchema = SchemaFactory.createForClass(Claim);

@@ -11,6 +11,10 @@ const routes: Routes = [
     loadChildren: () => import("./../pages/topic/topic.module").then(m => m.TopicModule)
   },
   {
+    path: "topic/:topic-id/claims/write",
+    loadChildren: () => import("./../pages/write-claim/write-claim.module").then(m => m.WriteClaimModule),
+  },
+  {
     path: '',
     redirectTo: 'trending',
     pathMatch: 'full'

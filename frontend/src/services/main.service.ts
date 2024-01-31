@@ -16,6 +16,11 @@ export class MainService {
     return firstValueFrom(
       this.http.get<T>("/api/topics")
     )
+  }
 
+  postApi<T>(body: any, ...path: string[]) {
+    return firstValueFrom(
+      this.http.post<T>("http://localhost:3000/" + path.join("/"), body)
+    )
   }
 }
