@@ -17,6 +17,7 @@ export const TopicSchema = SchemaFactory.createForClass(Topic);
 export class Claim {
   @Prop() title: string;
   @Prop() explanation: string;
+  @Prop() topic: string;
   // @Prop({ type: mongoose.Schema.Types.ObjectId }) _id: ObjectId;
 }
 

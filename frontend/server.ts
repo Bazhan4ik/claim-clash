@@ -28,12 +28,19 @@ export function app(): express.Express {
     maxAge: '1y'
   }));
 
+  server.get("/api/claims/:topic", async (req, res) => {
+    const topicId = req.params.topic;
+    const result = await axios.get("http://localhost:3000/claims/" + topicId);
+
+    res.send(result.data);
+  });
+
   server.get("/api/topics", async (req, res) => {
 
     const result = await axios.get("http://localhost:3000/topics");
 
     res.send(result.data);
-  })
+  });
 
   // All regular routes use the Angular engine
   server.get('*', (req, res, next) => {

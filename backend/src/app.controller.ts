@@ -22,10 +22,19 @@ export class AppController {
   createClaim(@Req() req: Request, @Res() res: Response, @Param("topic") topicId: string) {
     console.log(req.body);
 
-    const newClaim = new this.claimModel({ explanation: req.body.explanation, title: req.body.explanation });
+    const newClaim = new this.claimModel({ explanation: req.body.explanation, title: req.body.explanation, topic: topicId });
     newClaim.save();
 
     res.send({ accepted: true });
+  }
+
+  @Get("claims/:topic")
+  async getClaims(@Param("topic") topicId) {
+    const claims = await this.claimModel.find({ topic: topicId }).exec();
+
+    console.log(claims);
+
+    return claims;
   }
 
 

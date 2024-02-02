@@ -15,7 +15,7 @@ export class TrendingPage implements OnInit {
   topics!: Topic[];
 
   async ngOnInit() {
-    const result = await this.service.get<Topic[]>("");
+    const result = await this.service.get<Topic[]>("topics");
 
 
     if (result && result.length > 0) {

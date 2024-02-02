@@ -14,13 +14,13 @@ export class MainService {
 
   get<T>(...path: string[]) {
     return firstValueFrom(
-      this.http.get<T>("/api/topics")
-    )
+      this.http.get<T>("/api/" + path.join("/"))
+    );
   }
 
   postApi<T>(body: any, ...path: string[]) {
     return firstValueFrom(
       this.http.post<T>("http://localhost:3000/" + path.join("/"), body)
-    )
+    );
   }
 }

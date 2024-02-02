@@ -1,6 +1,10 @@
 <div class="app">
   <div class="claims">
-    Claims go here...
+    @for (claim of claims; track claim._id) {
+      {{ claim.title }}
+    } @empty {
+      No claims
+    }
   </div>
 
   <div class="write-claim">
