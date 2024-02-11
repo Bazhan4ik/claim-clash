@@ -1,20 +1,47 @@
 .app {
-  width: 100vw;
-  min-height: 100%;
   background-color: white;
+  width: 100vw;
+  min-height: 100vh;
+  padding: 0 32px;
 
-  .tabs {
-    margin-top: 16px;
-    width: 400px;
-    height: 32px;
-
+  .header {
+    padding: 12px 0;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 248px 1fr;
 
-    .tab {
-      &.selected {
-        background-color: rgba(255, 166, 0, 0.192);
+    .title {
+      h1 {
+        margin: 0;
       }
     }
+
+    .tabs {
+      width: 400px;
+      height: 32px;
+
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 24px;
+
+      .tab {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid rgb(179, 179, 179);
+        border-radius: 8px;
+        color: black;
+        text-decoration: none;
+
+        &.selected {
+          background-color: rgba(161, 161, 161, 0.233);
+        }
+      }
+    }
+  }
+
+  .body {
+    margin-top: 12px;
+    display: grid;
+    grid-template-columns: 248px 1fr;
   }
 }

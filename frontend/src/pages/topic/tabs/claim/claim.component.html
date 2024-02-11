@@ -1,0 +1,19 @@
+<div class="app">
+  <div class="header">
+    Claim
+  </div>
+
+  @if (claim) {
+    <div class="content">
+      Title: {{ claim.title }} <br>
+      Explanation: {{ claim.explanation }}
+    </div>
+  } @else {
+    No claim
+  }
+
+  <button (click)="approve()">
+    approve
+  </button>
+
+</div>

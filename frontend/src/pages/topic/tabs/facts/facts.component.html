@@ -1,13 +1,18 @@
-
-
 <div class="app">
+
   <div class="facts">
 
-    Facts go here
+    @for (fact of facts; track fact._id) {
+      <a routerLink="">
+        <div class="fact-info">
+          <p class="fact-title">
+            {{ fact.title }}
+          </p>
+        </div>
+      </a>
+    } @empty {
+      no facts
+    }
 
   </div>
 </div>
-
-
-
-

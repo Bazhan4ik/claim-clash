@@ -1,35 +1,31 @@
 <div class="app">
-
-
   <div class="header">
     <div class="title">
-      ClaimClash
+      <h1>
+        Claim Clash
+      </h1>
     </div>
-    <div class="topic">
-      Ukraine War
-    </div>
-  </div>
-
-  <div class="tabs">
-    <div class="tab selected">
-      <a routerLink="facts">
+    <div class="tabs">
+      <a class="tab" [class.selected]="currentTab == 'facts'" routerLink="facts">
         Facts
       </a>
-    </div>
-    <div class="tab">
-      <a routerLink="claims">
+      <a class="tab" [class.selected]="currentTab == 'claims'" routerLink="claims">
         Claims
       </a>
-    </div>
-    <div class="tab">
-      <a routerLink="discussions">
+      <a class="tab" [class.selected]="currentTab == 'discussions'" routerLink="discussions">
         Discussions
       </a>
     </div>
   </div>
-
-  <div class="claims">
-    <router-outlet></router-outlet>
+  
+  <div class="body">
+    <div class="left">
+      Facts here
+    </div>
+    <div class="right">
+      <router-outlet></router-outlet>
+    </div>
   </div>
-
+  
+  
 </div>

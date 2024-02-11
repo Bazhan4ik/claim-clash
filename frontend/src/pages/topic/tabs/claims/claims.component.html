@@ -1,12 +1,25 @@
 <div class="app">
   <div class="claims">
     @for (claim of claims; track claim._id) {
-      {{ claim.title }}
+      <a class="claim" [routerLink]="[claim._id]">
+        <div class="claim-container">
+          <div class="title">
+            <p>
+              {{ claim.title }}
+            </p>
+          </div>
+          <div class="overview">
+            <p>
+              {{ claim.explanation }}
+            </p>
+          </div>
+        </div>
+      </a>
     } @empty {
       No claims
     }
   </div>
-
+  
   <div class="write-claim">
     <a routerLink="write">Write a claim</a>
   </div>

@@ -22,3 +22,13 @@ export class Claim {
 }
 
 export const ClaimSchema = SchemaFactory.createForClass(Claim);
+
+
+@Schema()
+export class Fact extends Claim {
+  
+  @Prop({ type: Date, default: Date.now() }) approved: Date;
+
+}
+
+export const FactSchema = SchemaFactory.createForClass(Fact);

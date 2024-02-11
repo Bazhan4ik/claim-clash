@@ -28,6 +28,16 @@ export function app(): express.Express {
     maxAge: '1y'
   }));
 
+
+
+
+  server.get("/api/topics/:topic/facts", async (req, res) => {
+    const topicId = req.params.topic;
+    const result = await axios.get("http://localhost:3000/facts/" + topicId);
+
+    res.send(result.data);
+  });
+
   server.get("/api/claims/:topic", async (req, res) => {
     const topicId = req.params.topic;
     const result = await axios.get("http://localhost:3000/claims/" + topicId);
@@ -38,6 +48,14 @@ export function app(): express.Express {
   server.get("/api/topics", async (req, res) => {
 
     const result = await axios.get("http://localhost:3000/topics");
+
+    res.send(result.data);
+  });
+
+  server.get("/api/topics/:topic/claims/:claim", async (req, res) => {
+    const { claim, topic } = req.params;
+
+    const result = await axios.get("http://localhost:3000/topics/" + topic + "/claims/" + claim);
 
     res.send(result.data);
   });

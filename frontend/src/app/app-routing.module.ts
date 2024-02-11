@@ -3,21 +3,12 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: 'trending',
-    loadChildren: () => import('./../pages/trending/trending.module').then(m => m.TrendingModule)
+    path: '',
+    loadChildren: () => import('./../pages/home/home.module').then(m => m.HomeModule)
   },
   {
     path: "topic/:topic-id",
     loadChildren: () => import("./../pages/topic/topic.module").then(m => m.TopicModule)
-  },
-  {
-    path: "topic/:topic-id/claims/write",
-    loadChildren: () => import("./../pages/write-claim/write-claim.module").then(m => m.WriteClaimModule),
-  },
-  {
-    path: '',
-    redirectTo: 'trending',
-    pathMatch: 'full'
   },
 ];
 

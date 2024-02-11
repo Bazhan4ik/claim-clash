@@ -2,13 +2,20 @@ import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { MongooseModule } from '@nestjs/mongoose';
-import { Claim, ClaimSchema, Topic, TopicSchema } from './models';
+import { Claim, ClaimSchema, Fact, FactSchema, Topic, TopicSchema } from './models';
+import { ConfigModule, ConfigService } from '@nestjs/config';
 
 @Module({
   imports: [
-    // MongooseModule.forRoot("mongodb+srv://bazhantt:1H7OPLpizWzasmlR@cluster0.l72csly.mongodb.net/?retryWrites=true&w=majority", { dbName: "nottest" }),
-    MongooseModule.forRoot("mongodb+srv://bazhantt:1H7OPLpizWzasmlR@cluster0.l72csly.mongodb.net/?retryWrites=true&w=majority"),
-    MongooseModule.forFeature([{ name: Topic.name, schema: TopicSchema }, { name: Claim.name, schema: ClaimSchema }])
+    ConfigModule.forRoot(),
+    MongooseModule.forRootAsync({
+      imports: [ConfigModule],
+      useFactory: async (configService: ConfigService) => ({
+        uri: configService.get<string>('MONGODB_URI'),
+      }),
+      inject: [ConfigService],
+    }),
+    MongooseModule.forFeature([{ name: Topic.name, schema: TopicSchema }, { name: Claim.name, schema: ClaimSchema }, { name: Fact.name, schema: FactSchema }])
   ],
   controllers: [AppController],
   providers: [AppService],

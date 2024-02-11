@@ -1,0 +1,41 @@
+<div class="app">
+  <div class="header">
+    <div class="title">
+      <h1>
+        Claim Clash
+      </h1>
+    </div>
+  </div>
+
+
+
+  <div class="body">
+    <div class="facts">
+      <h2>
+        Help here:
+      </h2>
+    </div>
+    <div class="topics">
+      <div class="topics-header">
+        <div class="title">
+          <h2>
+            Topics
+          </h2>
+        </div>
+      </div>
+      <div class="list">
+        @for (topic of topics; track topic._id) {
+          <a class="topic" [routerLink]="['topic', topic.id]">
+            <div class="topic-body">
+              {{ topic.title }}
+            </div>
+          </a>
+        } @empty {
+          no topics
+        }
+      </div>
+    </div>
+  </div>
+
+
+</div>

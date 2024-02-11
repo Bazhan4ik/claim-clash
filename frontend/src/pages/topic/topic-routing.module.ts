@@ -21,6 +21,14 @@ const routes: Routes = [
         loadChildren: () => import("./tabs/claims/claims.module").then(m => m.ClaimsModule)
       },
       {
+        path: "claims/write",
+        loadChildren: () => import("./tabs/write-claim/write-claim.module").then(m => m.WriteClaimModule),
+      },
+      {
+        path: "claims/:claim-id",
+        loadChildren: () => import("./tabs/claim/claim.module").then(m => m.ClaimModule),
+      },
+      {
         path: "discussions",
         loadChildren: () => import("./tabs/discussions/discussions.module").then(m => m.DiscussionsModule)
       },

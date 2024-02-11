@@ -1,0 +1,37 @@
+.app {
+  .claims {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+
+    .claim {
+      width: 300px;
+      height: 120px;
+      border: 1px solid rgb(197, 197, 197);
+      border-radius: 8px;
+      text-decoration: none;
+
+      .claim-container {
+        width: 100%;
+        padding: 6px;
+
+        .title {
+          p {
+            color: black;
+            margin: 0;
+          }
+        }
+
+        .overview {
+          padding-top: 6px;
+
+          p {
+            margin: 0;
+            color: rgb(95, 95, 95);
+            font-size: 15px;
+          }
+        }
+      }
+    }
+  }
+}
