@@ -5,12 +5,16 @@
   "main": "index.js",
   "scripts": {
     "build": "npx tsc -p tsconfig.json",
-    "dev": "npx tsc -p tsconfig.json -w"
+    "dev": "npx tsc -p tsconfig.json -w",
+    "run:1": "node dist/1.js",
+    "clean": "node dist/clean.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^16.4.4",
+    "mongodb": "^6.3.0",
     "puppeteer": "^22.0.0",
     "typescript": "^5.3.3"
   }

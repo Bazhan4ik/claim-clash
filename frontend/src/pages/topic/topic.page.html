@@ -6,14 +6,14 @@
       </h1>
     </div>
     <div class="tabs">
-      <a class="tab" [class.selected]="currentTab == 'facts'" routerLink="facts">
+      <a id="articles" class="tab" [class.selected]="currentTab == 'articles'" routerLink="articles">
+        Articles
+      </a>
+      <a id="facts" class="tab" [class.selected]="currentTab == 'facts'" routerLink="facts">
         Facts
       </a>
-      <a class="tab" [class.selected]="currentTab == 'claims'" routerLink="claims">
+      <a id="claims" class="tab" [class.selected]="currentTab == 'claims'" routerLink="claims">
         Claims
-      </a>
-      <a class="tab" [class.selected]="currentTab == 'discussions'" routerLink="discussions">
-        Discussions
       </a>
     </div>
   </div>

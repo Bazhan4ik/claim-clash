@@ -14,7 +14,7 @@ export class TopicPage  implements OnInit {
   ) { };
 
 
-  currentTab = "facts";
+  currentTab = "articles";
   subscription: Subscription = new Subscription();
 
 
@@ -23,7 +23,7 @@ export class TopicPage  implements OnInit {
     this.subscription.add(
       this.router.events.subscribe(event => {
         if (event instanceof NavigationEnd) {
-          this.currentTab = event.url.split("/")[3] || "facts";
+          this.currentTab = event.url.split("/")[3] || "articles";
         }
       })
     );

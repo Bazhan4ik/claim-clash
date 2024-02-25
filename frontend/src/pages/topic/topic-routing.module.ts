@@ -10,7 +10,7 @@ const routes: Routes = [
       {
         path: "",
         pathMatch: "full",
-        redirectTo: "facts"
+        redirectTo: "articles"
       },
       {
         path: "facts",
@@ -29,8 +29,8 @@ const routes: Routes = [
         loadChildren: () => import("./tabs/claim/claim.module").then(m => m.ClaimModule),
       },
       {
-        path: "discussions",
-        loadChildren: () => import("./tabs/discussions/discussions.module").then(m => m.DiscussionsModule)
+        path: "articles",
+        loadChildren: () => import("./tabs/articles/articles.module").then(m => m.ArticlesModule)
       },
     ]
   },

@@ -23,4 +23,9 @@ export class MainService {
       this.http.post<T>("http://localhost:3000/" + path.join("/"), body)
     );
   }
+  getApi<T>(options: any, ...path: string[]) {
+    return firstValueFrom(
+      this.http.get<T>("http://localhost:3000/" + path.join("/"), options)
+    );
+  }
 }

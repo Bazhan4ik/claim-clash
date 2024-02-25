@@ -1,9 +1,11 @@
-import { Module } from '@nestjs/common';
+import { MiddlewareConsumer, Module, NestModule, RequestMethod } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { MongooseModule } from '@nestjs/mongoose';
-import { Claim, ClaimSchema, Fact, FactSchema, Topic, TopicSchema } from './models';
+import { Claim, ClaimSchema, Fact, FactSchema, Topic, TopicSchema, User, UserSchema } from './models';
 import { ConfigModule, ConfigService } from '@nestjs/config';
+import { AuthMiddleware } from './middleware/auth.middleware';
+import { UsersController } from './controllers/users/users.controller';
 
 @Module({
   imports: [
@@ -15,9 +17,18 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
       }),
       inject: [ConfigService],
     }),
-    MongooseModule.forFeature([{ name: Topic.name, schema: TopicSchema }, { name: Claim.name, schema: ClaimSchema }, { name: Fact.name, schema: FactSchema }])
+    MongooseModule.forFeature([
+      { name: Topic.name, schema: TopicSchema },
+      { name: Claim.name, schema: ClaimSchema },
+      { name: Fact.name, schema: FactSchema },
+      { name: User.name, schema: UserSchema }
+    ])
   ],
-  controllers: [AppController],
+  controllers: [AppController, UsersController],
   providers: [AppService],
 })
-export class AppModule {}
+export class AppModule implements NestModule {
+  configure(consumer: MiddlewareConsumer) {
+    consumer.apply(AuthMiddleware).forRoutes({ path: "*", method: RequestMethod.POST, });
+  }
+}

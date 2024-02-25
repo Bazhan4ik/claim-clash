@@ -12,7 +12,7 @@
     No claim
   }
 
-  <button (click)="approve()">
+  <button *ngIf="user" id="approve" (click)="approve()">
     approve
   </button>
 

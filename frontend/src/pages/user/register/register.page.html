@@ -1,0 +1,13 @@
+<div class="app">
+  <div class="form">
+
+    <form [formGroup]="form" (ngSubmit)="submit()">
+      <p class="error" *ngIf="errorMessage">{{ errorMessage }}</p>
+      <input id="i-email" type="email" placeholder="email" formControlName="email">
+      <input id="i-password" type="password" placeholder="password" formControlName="password">
+      
+      <button id="submit" type="submit">register</button>
+    </form>
+
+  </div>
+</div>

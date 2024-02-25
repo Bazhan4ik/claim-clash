@@ -10,6 +10,10 @@ const routes: Routes = [
     path: "topic/:topic-id",
     loadChildren: () => import("./../pages/topic/topic.module").then(m => m.TopicModule)
   },
+  {
+    path: "user",
+    loadChildren: () => import("./../pages/user/user.module").then(m => m.UserModule),
+  },
 ];
 
 @NgModule({
